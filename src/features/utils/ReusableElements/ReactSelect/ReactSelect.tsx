@@ -1,7 +1,7 @@
 import { GroupBase, StylesConfig, ThemeConfig } from 'react-select'
 import { Spinner } from 'reactstrap'
 import { SelectOption } from 'src/features/types'
-
+import { GetTheme } from 'src/features/hooks/GetTheme'
 export const SelectLoading = () => <Spinner className="my-5" />
 
 export const selectCustomStyles: StylesConfig<SelectOption, false, GroupBase<SelectOption>> = {
@@ -10,6 +10,8 @@ export const selectCustomStyles: StylesConfig<SelectOption, false, GroupBase<Sel
     border: 'none!important',
     boxShadow: 'none!important',
     minHeight: '33px',
+    background: GetTheme()['background'],
+    color: GetTheme()['color'],
   }),
   indicatorsContainer: (styles) => ({
     ...styles,
@@ -18,6 +20,11 @@ export const selectCustomStyles: StylesConfig<SelectOption, false, GroupBase<Sel
   dropdownIndicator: (styles) => ({
     ...styles,
     padding: '2px 8px',
+  }),
+  menuList: (styles) => ({
+    ...styles,
+    background: GetTheme()['background'],
+    color: GetTheme()['color'],
   }),
   option: (styles, { data, isSelected }) => {
     const indentSize = 16
@@ -106,7 +113,7 @@ export const selectColorCustomStyles: StylesConfig<SelectColorOption, false, Gro
     border: 'none!important',
     boxShadow: 'none!important',
     minHeight: '33px',
-    backgroundColor: 'white',
+    //backgroundColor: themeState(),
   }),
   indicatorsContainer: (styles) => ({
     ...styles,

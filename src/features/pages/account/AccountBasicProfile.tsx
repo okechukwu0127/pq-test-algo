@@ -12,6 +12,8 @@ const AccountBasicProfile = () => {
     (formData: BasicProfileFormData) => {
       const { email, username, firstName, lastName, phone } = formData
 
+      //console.log({formData})
+
       updateAccount({
         email: email,
         username: username,
